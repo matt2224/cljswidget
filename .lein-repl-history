@@ -1,0 +1,420 @@
+(use 'cljswidget.core)
+(foo)
+(foo 5)
+(use 'cljswidget.core)
+(def x (reify WidgetServer (render [x y]) (str x y)))
+(def x (reify WidgetServer (render [[x y]]) (str x y)))
+(def x (reify WidgetServer (render [[x y]] (str x y))
+)
+(def x (reify WidgetServer (render [[x y]] (str x y))))
+(def x (reify WidgetServer (render [x y] (str x y))))
+(render x)
+(def x (reify WidgetServer (render [[x y]] (str x y))))
+(def x (reify WidgetServer (render [&[x y]] (str x y))))
+(render x)
+(def x (reify WidgetServer (render [x y] (str x y))))
+(render x)
+(def x (reify WidgetServer (render [t & [x y]] (str x y))))
+(def x (reify WidgetServer (render [t [x y]] (str x y))))
+(render x)
+(def x (reify WidgetServer (render [t & more] (str "gj"))))
+(def y
+(reify WidgetServer
+(render [this & more] (str this))))
+(use 'cljswidget.core)
+(def x (reify WidgetServer (render [t arg-map] (str "gj"))))
+(render x)
+(def x (reify WidgetServer (render [_ arg-map] (str "gj"))))
+(render x)
+(type? x)
+(type x)
+x
+(core/render x)
+(render x {})
+(use 'cljswidget.core)
+(defwidget button
+[title]
+(server
+(render [] (str "jf")))
+(client (init [el] (js/alert el))))
+(use 'cljswidget.core)
+(defwidget button
+[title]
+(server
+(render [] (str "jf")))
+(client (init [el] (js/alert el))))
+(use 'cljswidget.core)
+(defwidget button
+[title]
+(server
+(render [] (str "jf")))
+(client (init [el] (js/alert el))))
+'_
+(use 'cljswidget.core)
+(defwidget button
+[title]
+(server
+(render [] (str "jf")))
+(client (init [el] (js/alert el))))
+(add-self-param ('lol [x] (str 5)))
+(add-self-param ('lol ['x] ('str 5)))
+(add-self-param '(('lol ['x] ('str 5))))
+(use 'cljswidget.core)
+(add-self-param '(('lol ['x] ('str 5))))
+(add-self-param '('lol ['x] ('str 5)))
+(use 'cljswidget.core)
+(add-self-param '('lol ['x] ('str 5)))
+(use 'cljswidget.core)
+(add-self-param '('lol ['x] ('str 5)))
+(conj [5 7] 2)
+(cons [4 7] 2)
+(cons 2 [4 7])
+(vec 2 [4 7])
+(vec* 2 [4 7])
+(use 'cljswidget.core)
+(add-self-param '('lol ['x] ('str 5)))
+ (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))
+)
+(add-self-param '('lol ['x] ('str 5)))
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))
+)
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))
+)
+(vec [5])
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))
+)
+(doc prn)
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))
+)
+(use 'cljswidget.core)
+ clojure.lang.Cons cannot be cast to clojure.lang.Symbol,
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(defn add-self-param
+  "Adds a self parameter to a method implementation."
+  [[fn-name params & body]]
+  (prn fn-name params body)
+  `((~fn-name [~'_ ~@params])))
+ (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(use 'cljswidget.core)
+ (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(use 'cljswidget.core)
+ (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+ (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(macroexpand-1  (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(macroexpand-1 ' (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(macroexpand-1 ' (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(macroexpand-1 ' (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(macroexpand '(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))))
+((defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))))
+(macroexpand-1 '(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+)
+(macroexpand-1 '(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))))
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(use 'cljswidget.core)
+(macroexpand-1 '(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))))
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+button
+(button "Hello")
+(render (button "Hello"))
+(render (button "Hellgo"))
+(render (button "Hellgogg"))
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(defwidget button
+)
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(str (defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(str '(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...)))))
+(pr-str (+ 6 6))
+(str (+ 6 6))
+(str '(+ 6 6))
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(use 'cljswidget.core)
+(defwidget button
+   [title] 
+   (server     
+       (render []
+           (str "<button>" title "</button>")))
+   (client
+       (init [el]
+           (.button js/jQuery ...)
+           (dommy/listen! :click ...))))
+(doc spit)
+(doc spit!)
+(def s (atom "")
+)
+(swap! s str "a")
+(use 'cljswidget.core)
+button
+(render (button "hkyl"))
+(gensym "w")
+(gensym "_")
+(use 'cljswidget.core)
+(with-meta
+)
+(doc with-meta
+)
+(with-meta (defn x [] "s") {:export true})
+(with-meta x {:export true})
+x
+(defn (with-meta a {:export true}))
+(defn (with-meta a {:export true}) ])
+(defn (with-meta a {:export true}) [] "kjf")
+(use 'cljswidget.core)
+(str `(defn ^:export x [] 0))
+(str `(defn '^:export x [] 0))
+(str `(defn ~'^:export x [] 0))
+(str `(defn ~'#^:export x [] 0))
+(str `(defn '#^:export x [] 0))
+(str `(defn (with-meta x {:export true}) [] 0))
+(use 'cljswidget.core)
+(eval (defn (with-meta x {:export true}) [] 0)))
+(eval (defn (with-meta x {:export true}) [] 0))
+(eval "(defn (with-meta x {:export true}) [] 0))"
+)
+(eval "(defn (with-meta x {:export true}) [] 0)")
+( "(defn (with-meta x {:export true}) [] 0)")
+(eval ":^export")
+(eval ^:export)
+(eval '^:export)
+(eval export)
+(read-string "^:export")
+'^:export
+)
+(use 'cljswidget.core)
+(button)
+(prn button)
+(prn-str button)
+(script-fragment button)(
+)
+(script-fragment button)
+(use 'cljswidget.core)
+(script-fragment button)
+script-fragment
+(script-fragment (button "Matthew"))
+script-fragment
+(use 'cljswidget.core)
+(script-fragment (button "Matthew"))
